@@ -57,5 +57,5 @@ async def generate_achievement_export():
             "image_url_locked": None
         })
 
-    with open('exports/gog-overwatch-achievements_all.txt', 'w') as outfile:
+    with open('exports/gog-overwatch-achievements_all.json', 'w') as outfile:
         json.dump(json_data, outfile)
