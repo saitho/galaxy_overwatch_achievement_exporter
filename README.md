@@ -27,8 +27,3 @@ Install dependencies:
 ```shell script
 pip install -r requirements/dev.txt
 ```
-
-Run tests:
-```shell script
-inv test
-```
