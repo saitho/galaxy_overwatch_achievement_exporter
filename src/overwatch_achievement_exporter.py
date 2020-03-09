@@ -40,3 +40,22 @@ async def get_user_achievements(username: str):
             "unlocked": achievement_is_unlocked
         })
     return achievements
+
+async def generate_achievement_export():
+    achievements = await get_user_achievements('saitho#2703')
+
+    json_data = {
+        "release_per_platform_id": "battlenet_5272175",
+        "achievements": []
+    }
+    for achievement in achievements:
+        json_data['achievements'].append({
+            "name": achievement['name'],
+            "description": achievement['description'],
+            "api_key": achievement['api_key'],
+            "image_url_unlocked": achievement['image_url'],
+            "image_url_locked": None
+        })
+
+    with open('exports/gog-overwatch-achievements_all.txt', 'w') as outfile:
+        json.dump(json_data, outfile)
