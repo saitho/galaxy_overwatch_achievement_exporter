@@ -1,1 +1,1 @@
-from src.overwatch_achievement_exporter import Achievements
+from src.achievements import Achievements

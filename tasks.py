@@ -2,7 +2,7 @@ import asyncio
 from invoke import task
 import sys
 sys.path.append('./src')
-from overwatch_achievement_exporter import Exporter
+from exporter import Exporter
 
 
 @task
