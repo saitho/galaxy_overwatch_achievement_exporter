@@ -2,7 +2,7 @@ import asyncio
 from invoke import task
 import sys
 sys.path.append('./src')
-from overwatch_achievement_exporter import generate_achievement_export
+from overwatch_achievement_exporter import Exporter
 
 
 @task
@@ -12,4 +12,4 @@ def test(c):
 
 @task
 def update(c):
-    asyncio.run(generate_achievement_export())
+    asyncio.run(Exporter().generate_achievement_export())
