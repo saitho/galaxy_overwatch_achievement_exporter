@@ -34,6 +34,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: PNPM install
+        run: npm i -g pnpm && pnpm i -P
       - name: Semantic Release Action
         uses: codfish/semantic-release-action@master
         env:
