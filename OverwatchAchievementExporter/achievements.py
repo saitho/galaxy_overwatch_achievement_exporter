@@ -1,14 +1,13 @@
 from lxml import etree
 import re
-
-from backend import Backend
+import requests
 
 
 class Achievements:
-    async def get_for_user(self, username: str, backend: Backend = Backend()):
+    async def get_for_user(self, username: str):
         selector_achievements_all = "//*[contains(concat(' ', normalize-space(@class), ' '),' achievement-card-container ')]"
 
-        player_data = await backend.get_user_profile(username)
+        player_data = await self.get_user_profile(username)
         root = etree.HTML(player_data)
 
         achievements = []
@@ -34,3 +33,8 @@ class Achievements:
 
     def get_achievement_key(self, name: str):
         return re.sub('\W+', '', name.lower())
+
+    async def get_user_profile(self, username: str):
+        url = f"https://playoverwatch.com/en-us/career/pc/{username.replace('#', '-')}"
+        r = requests.get(url, {})
+        return r.text
