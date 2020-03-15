@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
     name = 'OverwatchAchievementExporter',
     packages = ['OverwatchAchievementExporter'],
-    version = '1.0.0',
+    version = '1.0.1',
     license='apache-2.0',
     description = 'Python API to fetch a player\'s Overwatch achievements',
     author = 'Mario Lubenka',
